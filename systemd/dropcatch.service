@@ -1,0 +1,18 @@
+[Unit]
+Description=Dynadot drop-catching bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/dropcatch
+EnvironmentFile=/opt/dropcatch/.env
+ExecStart=/usr/bin/python3 /opt/dropcatch/dropcatch.py run --targets /opt/dropcatch/targets.csv --rate 1
+Restart=on-failure
+RestartSec=30
+# Run as an unprivileged user, not root:
+User=dropcatch
+Group=dropcatch
+
+[Install]
+WantedBy=multi-user.target

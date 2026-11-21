@@ -1,0 +1,16 @@
+# Targets for dropcatch.py
+# Columns:
+#   domain             - the name to catch
+#   drop_datetime_utc  - when the registry releases it (ISO 8601, UTC).
+#                        Leave blank to poll availability instead (default every 5 min).
+#                        .com/.net pending-delete drops usually land 18:00-19:30 UTC;
+#                        check the exact date at your registrar or ExpiredDomains.net.
+#   max_price_usd      - optional safety cap. If the name comes back premium-priced
+#                        above this, the bot skips it instead of spending.
+#
+# Lines starting with # are ignored. Delete any name you do NOT want to pay for:
+# a successful catch is a real registration charged to your Dynadot balance.
+#
+domain,drop_datetime_utc,max_price_usd
+example.com,2026-11-25T18:30:00Z,50
+example.net,,50
